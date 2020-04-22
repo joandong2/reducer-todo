@@ -8,21 +8,41 @@ const Todo = () => {
     // assign initialState to state
     const [state, dispatch] = useReducer(todoReducer, initialState);
 
-    const addTodo = (e) => {
+    const addHandler = (newTodo) => {
         dispatch({
             type: "ADD_TODO",
             payload: {
-                todo: e,
+                todo: newTodo,
                 completed: false,
                 id: Date.now(),
             },
         });
     };
 
+    const clickHandler = (e) => {
+        //console.log(e.target.getAttribute("data-id"));
+        dispatch({
+            type: "TOGGLE_COMPLETE",
+            payload: {
+                id: e.target.getAttribute("data-id"),
+            },
+        });
+    };
+
+    const completeHandler = (e) => {
+        dispatch({
+            type: "FILTER_COMPLETED_ITEMS",
+        });
+    };
+
     return (
         <>
-            <AddForm addTodo={addTodo} />
-            <TodoList todos={state} />
+            <AddForm addTodo={addHandler} />
+            <TodoList
+                todos={state}
+                onClick={clickHandler}
+                onComplete={completeHandler}
+            />
         </>
     );
 };

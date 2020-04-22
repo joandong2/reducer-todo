@@ -1,11 +1,20 @@
 import React from "react";
 
 const TodoList = (props) => {
-    //console.log(props.todos);
     return (
         <>
+            <button onClick={props.onComplete}>Clear completed</button>
             {props.todos.map((todo) => {
-                return <p key={todo.id}>{todo.todo}</p>;
+                return (
+                    <p
+                        className={todo.completed ? "completed" : ""}
+                        key={todo.todo}
+                        data-id={todo.id}
+                        onClick={props.onClick}
+                    >
+                        {todo.todo}
+                    </p>
+                );
             })}
         </>
     );
