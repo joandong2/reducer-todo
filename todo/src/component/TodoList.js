@@ -3,19 +3,38 @@ import React from "react";
 const TodoList = (props) => {
     return (
         <>
-            <button onClick={props.onComplete}>Clear completed</button>
-            {props.todos.map((todo) => {
-                return (
-                    <p
-                        className={todo.completed ? "completed" : ""}
-                        key={todo.todo}
-                        data-id={todo.id}
-                        onClick={props.onClick}
-                    >
-                        {todo.todo}
-                    </p>
-                );
-            })}
+            <table className="table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th className="table-heading">Todos</th>
+                        <th className="table-heading">Due</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {props.todos.map((todo) => {
+                        return (
+                            <tr
+                                key={todo.todo}
+                                className={todo.completed ? "completed" : ""}
+                                row-id={todo.id}
+                                onClick={props.onClick}
+                            >
+                                <td>
+                                    {todo.todo}{" "}
+                                    {new Date(todo.due) < new Date() ? (
+                                        <span className="badge badge-warning">
+                                            Overdue
+                                        </span>
+                                    ) : (
+                                        ""
+                                    )}
+                                </td>
+                                <td>{todo.due}</td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
         </>
     );
 };

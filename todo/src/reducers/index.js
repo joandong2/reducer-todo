@@ -2,6 +2,7 @@ export const initialState = [
     {
         todo: "Learn about reducers",
         completed: false,
+        due: "2020-04-22",
         id: 3892987589,
     },
 ];

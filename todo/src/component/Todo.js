@@ -9,22 +9,24 @@ const Todo = () => {
     const [state, dispatch] = useReducer(todoReducer, initialState);
 
     const addHandler = (newTodo) => {
+        console.log(newTodo);
         dispatch({
             type: "ADD_TODO",
             payload: {
-                todo: newTodo,
+                todo: newTodo.todo,
                 completed: false,
+                due: newTodo.due,
                 id: Date.now(),
             },
         });
     };
 
     const clickHandler = (e) => {
-        //console.log(e.target.getAttribute("data-id"));
+        console.log(e.target.parentNode.getAttribute("row-id"));
         dispatch({
             type: "TOGGLE_COMPLETE",
             payload: {
-                id: e.target.getAttribute("data-id"),
+                id: e.target.parentNode.getAttribute("row-id"),
             },
         });
     };
@@ -35,15 +37,28 @@ const Todo = () => {
         });
     };
 
+    // let now = new Date();
+    // console.log(now);
+    // console.log(new Date("2020-04-20") <= now);
+
     return (
-        <>
-            <AddForm addTodo={addHandler} />
-            <TodoList
-                todos={state}
-                onClick={clickHandler}
-                onComplete={completeHandler}
-            />
-        </>
+        <div className="container">
+            <div className="row">
+                <div className="col-sm-9">
+                    <AddForm addTodo={addHandler} />
+                </div>
+                <div className="col-sm-3 completed-div">
+                    <button
+                        className="btn btn-danger btn-sm mb-2"
+                        onClick={completeHandler}
+                    >
+                        Clear completed
+                    </button>
+                </div>
+            </div>
+
+            <TodoList todos={state} onClick={clickHandler} />
+        </div>
     );
 };
 
