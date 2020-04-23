@@ -1,6 +1,8 @@
 import React from "react";
 
 const TodoList = (props) => {
+    console.log(props);
+
     return (
         <>
             <table className="table table-hover table-sm">

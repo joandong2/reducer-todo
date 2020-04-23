@@ -1,6 +1,10 @@
 .App {
 }
 
+.heading {
+    margin-top: 20px;
+}
+
 form {
     margin-top: 15px;
 }

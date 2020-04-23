@@ -5,6 +5,12 @@ export const initialState = [
         due: "2020-04-22",
         id: 3892987589,
     },
+    {
+        todo: "Feed the dinosaurs",
+        completed: false,
+        due: "2020-04-18",
+        id: 3892987590,
+    },
 ];
 
 export const todoReducer = (state, action) => {

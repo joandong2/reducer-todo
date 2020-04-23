@@ -46,6 +46,7 @@ const Todo = () => {
 
     return (
         <div className="container">
+            <h3 className="heading">Reducer Todo</h3>
             <div className="row">
                 <div className="col-sm-9">
                     <AddForm addTodo={addHandler} />
