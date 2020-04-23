@@ -1,0 +1,42 @@
+.App {
+}
+
+.heading {
+    margin-top: 20px;
+}
+
+form {
+    margin-top: 15px;
+}
+
+.completed-div {
+    text-align: right;
+}
+
+.completed-div button {
+    margin-top: 20px;
+}
+
+table {
+    margin-top: 20px;
+}
+
+.table-heading {
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.completed {
+    background: #dc3545;
+    color: white;
+}
+
+.badge {
+    margin-left: 10px;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 720px;
+    }
+}
