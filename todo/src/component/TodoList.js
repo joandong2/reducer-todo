@@ -20,8 +20,10 @@ const TodoList = (props) => {
                                 onClick={props.onClick}
                             >
                                 <td>
-                                    {todo.todo}{" "}
-                                    {new Date(todo.due) < new Date() ? (
+                                    {todo.todo}
+
+                                    {new Date(todo.due.replace(/-/g, "/")) <
+                                    new Date().setHours(0, 0, 0, 0) ? (
                                         <span className="badge badge-warning">
                                             Overdue
                                         </span>

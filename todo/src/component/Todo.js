@@ -37,9 +37,12 @@ const Todo = () => {
         });
     };
 
-    // let now = new Date();
-    // console.log(now);
-    // console.log(new Date("2020-04-20") <= now);
+    // console.log(new Date());
+    // console.log(new Date("2020-04-22".replace(/-/g, "/")));
+    // console.log(
+    //     new Date("2020-04-22".replace(/-/g, "/")) <
+    //         new Date().setHours(0, 0, 0, 0)
+    // );
 
     return (
         <div className="container">
